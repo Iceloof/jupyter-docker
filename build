@@ -1,0 +1,5 @@
+#!/bin/bash
+docker container kill $(docker ps | grep "jupyter" | awk '{ print $1 }')
+docker rm $(docker ps -a | grep "jupyter" | awk '{ print $1 }')
+docker build -t jupyter .
+docker run --name jupyter --restart=always --network=host -p 8888:8888 -v /mnt/data/Programs/jupyter:/home/jupyter jupyter
