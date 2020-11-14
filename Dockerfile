@@ -57,6 +57,7 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 RUN apt-get update && apt-get install -yq --no-install-recommends build-essential emacs-nox vim-tiny git libsm6 libxext-dev libxrender1 lmodern netcat python-dev python3-pip jupyter texlive-xetex texlive-fonts-recommended texlive-plain-generic tzdata unzip nano && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN python3 -m pip install Pygments==2.6.1 pandas numpy matplotlib plotly scikit-learn beautifulsoup4 jupyter notebook
 RUN python3 -m pip install requests selenium
+RUN python3 -m pip install mysql-connector-python
 RUN mkdir -p /home/$NB_USER
 COPY start /home/
 
