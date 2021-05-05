@@ -59,7 +59,7 @@ RUN python3 -m pip install Pygments==2.6.1 pandas numpy matplotlib plotly scikit
 RUN python3 -m pip install requests selenium
 RUN python3 -m pip install mysql-connector-python
 RUN python3 -m pip install feedparser spacy
-RUN python3 -m spacy download en_core_web_lg
+#RUN python3 -m spacy download en_core_web_lg
 RUN mkdir -p /home/$NB_USER
 COPY start /home/
 
