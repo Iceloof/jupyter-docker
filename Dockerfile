@@ -54,11 +54,11 @@ RUN apt-get update && apt-get install -yqq unzip curl
 RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
-RUN apt-get update && apt-get install -yq --no-install-recommends build-essential emacs-nox vim-tiny git libsm6 libxext-dev libxrender1 lmodern netcat python-dev python3-pip jupyter texlive-xetex texlive-fonts-recommended texlive-plain-generic tzdata unzip nano && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -yq --no-install-recommends build-essential emacs-nox vim-tiny git libsm6 libxext-dev libxrender1 lmodern netcat python-dev python3-pip jupyter texlive-xetex texlive-fonts-recommended texlive-plain-generic tzdata unzip nano libpq-dev python3-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN python3 -m pip install Pygments==2.6.1 pandas numpy matplotlib plotly scikit-learn beautifulsoup4 jupyter notebook
 RUN python3 -m pip install requests selenium
 RUN python3 -m pip install mysql-connector-python
-RUN python3 -m pip install feedparser spacy
+RUN python3 -m pip install feedparser spacy psycopg2
 #RUN python3 -m spacy download en_core_web_lg
 RUN mkdir -p /home/$NB_USER
 COPY start /home/
