@@ -1,4 +1,4 @@
-ARG ROOT_CONTAINER=ubuntu:20.10
+ARG ROOT_CONTAINER=ubuntu:21.10
 
 ARG BASE_CONTAINER=$ROOT_CONTAINER
 ARG NB_USER="jupyter"
@@ -60,9 +60,10 @@ RUN python3 -m pip install requests selenium
 RUN python3 -m pip install mysql-connector-python
 RUN python3 -m pip install feedparser spacy psycopg2 ibapi ezibpy
 RUN python3 -m spacy download en_core_web_lg
+RUN python3 -m tqdm timeout_decorator holidays
 RUN mkdir -p /home/$NB_USER
 COPY start /home/
-
+ 
 # set display port to avoid crash
 ENV DISPLAY=:99
 
